@@ -1,0 +1,3 @@
+[submodule "lib/min-api"]
+	path = lib/min-api
+	url = https://github.com/jonasohland/min-api
