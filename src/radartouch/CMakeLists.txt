@@ -13,6 +13,3 @@ add_library(
 include_directories(${C74_INCLUDES})
 
 include(${C74_MIN_API_DIR}/script/min-posttarget.cmake)
-
-
-
