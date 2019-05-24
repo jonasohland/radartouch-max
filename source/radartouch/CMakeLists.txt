@@ -7,7 +7,7 @@ include(${C74_MIN_API_DIR}/script/min-pretarget.cmake)
 add_library(
     ${PROJECT_NAME}
     MODULE
-    ${PROJECT_NAME}.cc
+    ${PROJECT_NAME}.cpp
 )
 
 include_directories(${C74_INCLUDES})

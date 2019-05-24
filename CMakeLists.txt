@@ -10,5 +10,6 @@ endif ()
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/lib/min-api/script/min-package.cmake)
 
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/min-api)
 
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/src/radartouch")
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/source/radartouch")
