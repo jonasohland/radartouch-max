@@ -1,3 +1,6 @@
 [submodule "lib/min-api"]
 	path = lib/min-api
 	url = https://github.com/jonasohland/min-api
+[submodule "lib/oscpp"]
+	path = lib/oscpp
+	url = https://github.com/kaoskorobase/oscpp
