@@ -4,3 +4,6 @@
 [submodule "lib/oscpp"]
 	path = lib/oscpp
 	url = https://github.com/kaoskorobase/oscpp
+[submodule "lib/liboh"]
+	path = lib/liboh
+	url = https://github.com/jonasohland/liboh
