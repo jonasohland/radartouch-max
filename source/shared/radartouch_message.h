@@ -6,6 +6,8 @@
 namespace o {
 
     class radartouch_message {
+        
+    public:
 
         struct blob {
 
@@ -32,7 +34,6 @@ namespace o {
             bool initialized() { return init; }
         };
 
-      public:
         
         radartouch_message() = default;
 
