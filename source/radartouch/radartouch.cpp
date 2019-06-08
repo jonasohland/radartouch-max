@@ -6,8 +6,7 @@ namespace o {
 
     class radartouch : public c74::min::object<radartouch>, public radartouch_receiver {
 
-      public:
-        enum class parser_state { ALIVE, SET, FSEQ };
+    public:
 
         using b_outlet = c74::min::outlet<c74::min::thread_check::any,
                                           c74::min::thread_action::fifo>;
@@ -102,7 +101,6 @@ namespace o {
                 else
                     new_blobs.push_back(blob);
                 
-                
             }
             
             std::vector<long> died_indc;
@@ -172,6 +170,8 @@ namespace o {
             
             
         }
+            
+        // TODO: reset msg
 
             
         long max_blobs = 0;
