@@ -16,6 +16,7 @@ if(${IS_IDE})
         radartouch_shared
         STATIC
         ${CMAKE_CURRENT_SOURCE_DIR}/radartouch_receiver.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/radartouch_message.h
     )
 
     set_target_properties(radartouch_shared PROPERTIES LINKER_LANGUAGE CXX)
