@@ -100,9 +100,9 @@ namespace o {
                 outlets_[index]->send(msg);
             } else {
                 if (by_index)
-                    outlets_[0]->send(static_cast<int>(index), msg);
+                    outlets_[0]->send(static_cast<int>(index + 1), msg);
                 else
-                    outlets_[0]->send(msg, static_cast<int>(index));
+                    outlets_[0]->send(msg, static_cast<int>(index + 1));
             }
         }
 
@@ -229,14 +229,14 @@ namespace o {
                 for (auto& out : output) {
                     if (by_index)
                         outlets_[0]->send(
-                            static_cast<int>(out.first), "blob",
+                            static_cast<int>(out.first + 1), "blob",
                             static_cast<int>(out.second.bid),
                             out.second.args[0], out.second.args[1],
                             out.second.args[2], out.second.args[3],
                             out.second.args[4]);
                     else
                         outlets_[0]->send(
-                            "blob", static_cast<int>(out.first),
+                            "blob", static_cast<int>(out.first + 1),
                             static_cast<int>(out.second.bid),
                             out.second.args[0], out.second.args[1],
                             out.second.args[2], out.second.args[3],

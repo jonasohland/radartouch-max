@@ -11,8 +11,8 @@ namespace o {
 
         struct blob {
 
-            blob(long bid)
-                : bid(bid) {}
+            blob(long bid_in)
+                : bid(bid_in) {}
 
             long bid;
             std::array<float, 5> args;
