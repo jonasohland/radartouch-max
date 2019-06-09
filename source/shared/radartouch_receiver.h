@@ -120,6 +120,8 @@ namespace o {
                             c_msg_.reset();
                     }
                     
+                    c_msg_.close(fseq);
+                    
                     handle_radartouch_msg(std::move(c_msg_));
                     
                     c_msg_.reset();

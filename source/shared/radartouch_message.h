@@ -71,6 +71,14 @@ namespace o {
             if (it != blobs_.end())
                 (*it).set_args(std::forward<std::array<float, 5>>(args));
         }
+        
+        void close(long fseq){
+            fseq_ = fseq;
+        }
+        
+        long fseq(){
+            return fseq_;
+        }
 
         void reset() {
             init_ = false;
@@ -93,5 +101,6 @@ namespace o {
       private:
         std::vector<blob> blobs_;
         bool init_ = false;
+        long fseq_;
     };
 }

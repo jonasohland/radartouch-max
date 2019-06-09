@@ -17,3 +17,4 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/min-api)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/source/shared)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/source/radartouch)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/source/radartouch_raw)

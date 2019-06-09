@@ -8,6 +8,11 @@ namespace o {
                        public radartouch_receiver {
 
       public:
+        MIN_AUTHOR = "Jonas Ohland";
+        MIN_DESCRIPTION = "Receive messages from radartouch";
+        MIN_TAGS = "net, laser, radar, tracking, room";
+        MIN_RELATED = "udpreceive, udpsend, nodes";
+
         using b_outlet = c74::min::outlet<c74::min::thread_check::any,
                                           c74::min::thread_action::fifo>;
 
@@ -25,8 +30,13 @@ namespace o {
 
                 port = c74::min::atom::get<long>(*args_it);
 
-                if (++args_it != args.end())
-                    max_blobs = c74::min::atom::get<long>(*args_it);
+                if (++args_it != args.end()) {
+                    if (args_it->a_type == c74::max::e_max_atomtypes::A_LONG) {
+                        max_blobs = c74::min::atom::get<long>(*args_it);
+                    } else
+                        --args_it;
+                } else
+                    --args_it;
 
                 if (max_blobs) {
 
@@ -45,19 +55,23 @@ namespace o {
                     std::fill_n(outlet_states.begin(), max_blobs,
                                 std::make_tuple(-1, false, false));
 
-                    for (++args_it; args_it != args.end(); ++args_it) {
-                        if (c74::min::atom::get<std::string>(*args_it) ==
-                            "nodesout")
-                            nodes_out_ = std::make_unique<b_outlet>(
-                                this, "nodes outlet", "list");
-                    }
-
                 } else {
 
-                    /*                    outlets_.push_back(std::make_unique<b_outlet>(
-                                            this, "Output (list)", "list")); */
+                    outlets_.push_back(std::make_unique<b_outlet>(
+                        this, "Output (list)", "list"));
+                }
 
-                    throw std::runtime_error("No max blobs specified");
+                for (++args_it; args_it != args.end(); ++args_it) {
+                    if (c74::min::atom::get<std::string>(*args_it) ==
+                        "nodesout")
+                        nodes_out_ = std::make_unique<b_outlet>(
+                            this, "nodes outlet", "list");
+                    else if (c74::min::atom::get<std::string>(*args_it) ==
+                             "by_index")
+                        by_index = true;
+                    else if (c74::min::atom::get<std::string>(*args_it) ==
+                             "by_type")
+                        by_index = false;
                 }
 
             } catch (c74::min::bad_atom_access ex) {
@@ -81,15 +95,26 @@ namespace o {
             cwarn << str << c74::min::endl;
         }
 
+        void output_status_msg(long index, const char* msg) {
+            if (max_blobs) {
+                outlets_[index]->send(msg);
+            } else {
+                if (by_index)
+                    outlets_[0]->send(static_cast<int>(index), msg);
+                else
+                    outlets_[0]->send(msg, static_cast<int>(index));
+            }
+        }
+
         void handle_radartouch_msg(radartouch_message&& msg) final {
 
             std::vector<std::pair<long, radartouch_message::blob>> output;
 
             std::vector<radartouch_message::blob> new_blobs;
 
-            std::vector<long> alive_indc;
-
-            std::vector<long> revived_indc;
+            std::vector<int> alive_indc;
+            std::vector<int> revived_indc;
+            std::vector<int> died_indc;
 
             for (auto& blob : msg.blobs()) {
 
@@ -118,8 +143,6 @@ namespace o {
                 else
                     new_blobs.push_back(blob);
             }
-
-            std::vector<long> died_indc;
 
             // find blobs that were active the last time but are missing this
             // time
@@ -152,23 +175,40 @@ namespace o {
                     alive_indc.push_back(index);
 
                     output.push_back(std::make_pair(index, new_b));
+
+                    // add new state container to list if no more free outlets
+                    // remaining
+                } else if (max_blobs == 0) {
+
+                    outlet_states.push_back(
+                        std::make_tuple(new_b.bid, true, true));
+
+                    long index = outlet_states.size() - 1;
+
+                    alive_indc.push_back(index);
+
+                    output.push_back(std::make_pair(index, new_b));
                 }
             }
 
+            // sort message lists
+            std::sort(died_indc.begin(), died_indc.end(), std::greater<long>());
+            std::sort(
+                alive_indc.begin(), alive_indc.end(), std::greater<long>());
+            std::sort(
+                revived_indc.begin(), revived_indc.end(), std::greater<long>());
+
             // output "died" messages
-            for (auto ind : died_indc) {
-                outlets_[ind]->send("died");
-            }
+            for (auto ind : died_indc)
+                output_status_msg(ind, "died");
 
             // output "alive messages"
-            for (long ind : alive_indc) {
-                outlets_[ind]->send("alive");
-            }
+            for (long ind : alive_indc)
+                output_status_msg(ind, "alive");
 
             // output "revive messages"
-            for (long ind : revived_indc) {
-                outlets_[ind]->send("revive");
-            }
+            for (long ind : revived_indc)
+                output_status_msg(ind, "revive");
 
             // sort output hi - lo, so we output max-style from right to left
             std::sort(output.begin(), output.end(), [&](auto lhs, auto rhs) {
@@ -176,17 +216,39 @@ namespace o {
             });
 
             // output the values
-            for (auto& out : output) {
-                outlets_[out.first]->send(
-                    static_cast<int>(out.second.bid), out.second.args[0],
-                    out.second.args[1], out.second.args[2], out.second.args[3],
-                    out.second.args[4]);
+            if (max_blobs) {
+                // to corresponding outlets
+                for (auto& out : output) {
+                    outlets_[out.first]->send(
+                        static_cast<int>(out.second.bid), out.second.args[0],
+                        out.second.args[1], out.second.args[2],
+                        out.second.args[3], out.second.args[4]);
+                }
+            } else {
+                // or to outlet 0
+                for (auto& out : output) {
+                    if (by_index)
+                        outlets_[0]->send(
+                            static_cast<int>(out.first), "blob",
+                            static_cast<int>(out.second.bid),
+                            out.second.args[0], out.second.args[1],
+                            out.second.args[2], out.second.args[3],
+                            out.second.args[4]);
+                    else
+                        outlets_[0]->send(
+                            "blob", static_cast<int>(out.first),
+                            static_cast<int>(out.second.bid),
+                            out.second.args[0], out.second.args[1],
+                            out.second.args[2], out.second.args[3],
+                            out.second.args[4]);
+                }
             }
 
+            // output setnodes msg
             if (nodes_out_) {
                 for (auto& out : output)
                     nodes_out_->send("setnode", static_cast<int>(out.first) + 1,
-                                     out.second.args[1], out.second.args[2]);
+                                     out.second.args[0], out.second.args[1]);
             }
 
             // reset outlet active flags
@@ -197,6 +259,8 @@ namespace o {
         // TODO: reset msg
 
         long max_blobs = 0;
+
+        bool by_index = false;
 
         c74::min::inlet<> inlet_{this, "commands input", "list"};
 
@@ -209,4 +273,9 @@ namespace o {
     };
 }
 
-MIN_EXTERNAL(o::radartouch);
+void ext_main(void* r) {
+    c74::max::object_post(nullptr,
+                          "radartouch external %s // (c) 2019 Jonas Ohland ",
+                          O_THIS_TARGET_VERSION());
+    c74::min::wrap_as_max_external<o::radartouch>("radartouch", __FILE__, r);
+}
