@@ -79,6 +79,10 @@ namespace o {
             std::vector<std::pair<long, radartouch_message::blob>> output;
             
             std::vector<radartouch_message::blob> new_blobs;
+            
+            std::vector<long> alive_indc;
+            
+            std::vector<long> revived_indc;
 
             for (auto& blob : msg.blobs()) {
 
@@ -92,6 +96,9 @@ namespace o {
                 if (last_outlet_it != outlet_states.end()){
                     
                     output.push_back(std::make_pair(last_outlet_it - outlet_states.begin(), blob));
+                    
+                    if(!std::get<2>(*last_outlet_it))
+                        revived_indc.push_back(last_outlet_it - outlet_states.begin());
                     
                     std::get<0>(*last_outlet_it) = blob.bid;
                     std::get<1>(*last_outlet_it) = true; // will output
@@ -110,11 +117,8 @@ namespace o {
                 if( (!std::get<1>(outlet_states[i])) && std::get<2>(outlet_states[i]) ){
                     died_indc.push_back(i);
                     std::get<2>(outlet_states[i]) = false;
-                    std::get<0>(outlet_states[i]) = -1;
                 }
             }
-            
-            std::vector<long> alive_indc;
             
             // assign new blobs to inactive outlets
             for(auto& new_b : new_blobs){
@@ -149,6 +153,11 @@ namespace o {
             // output "alive messages"
             for(long ind : alive_indc){
                 outlets_[ind]->send("alive");
+            }
+            
+            // output "revive messages"
+            for(long ind : revived_indc){
+                outlets_[ind]->send("revive");
             }
             
             // sort output hi - lo, so we output max-style from right to left
