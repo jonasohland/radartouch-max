@@ -105,6 +105,12 @@ namespace o {
                     outlets_[0]->send(msg, static_cast<int>(index + 1));
             }
         }
+            
+        std::string candycane_for_index(int index){
+            if(index == 0)
+                return "nodecolor";
+            else return std::string("candycane") + std::to_string(index + 1);
+        }
 
         void handle_radartouch_msg(radartouch_message&& msg) final {
 
@@ -246,9 +252,23 @@ namespace o {
 
             // output setnodes msg
             if (nodes_out_) {
-                for (auto& out : output)
-                    nodes_out_->send("setnode", static_cast<int>(out.first) + 1,
-                                     out.second.args[0], out.second.args[1]);
+
+                if (output.size())
+                    nodes_out_->send(
+                        "candycane",
+                        std::clamp(
+                            static_cast<int>(outlet_states.size()), 0, 8));
+
+                for (auto it = output.begin(); it != output.end(); ++it) {
+
+                    if (static_cast<int>(output[0].first) <= 6)
+                        nodes_out_->send(candycane_for_index(it->first),
+                                         std::abs(it->second.args[2]), 0.5, 0.5,
+                                         0.7);
+
+                    nodes_out_->send("setnode", static_cast<int>(it->first) + 1,
+                                     it->second.args[0], it->second.args[1]);
+                }
             }
 
             // reset outlet active flags
