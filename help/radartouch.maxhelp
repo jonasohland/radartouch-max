@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 90.0, 78.0, 648.0, 749.0 ],
+		"rect" : [ 90.0, 85.0, 646.0, 810.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -56,7 +56,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 648.0, 723.0 ],
+						"rect" : [ 0.0, 26.0, 646.0, 784.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -139,7 +139,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 20.0, 6.0, 607.0, 94.0 ],
+									"patching_rect" : [ 20.0, 6.0, 607.0, 78.0 ],
 									"text" : "RADARTOUCH"
 								}
 
@@ -245,7 +245,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 648.0, 723.0 ],
+						"rect" : [ 0.0, 26.0, 646.0, 784.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -713,7 +713,7 @@
 									"id" : "obj-48",
 									"maxclass" : "nodes",
 									"nodecolor" : [ 0.027351999655366, 0.5, 0.5, 1.0 ],
-									"nodesnames" : [ "3099" ],
+									"nodesnames" : [ "3073" ],
 									"nsize" : [ 0.2 ],
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -721,8 +721,8 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 447.75, 531.0, 180.0, 177.0 ],
 									"pointcolor" : [ 0.027351999655366, 0.5, 0.5, 1.0 ],
-									"xplace" : [ 0.819000005722046 ],
-									"yplace" : [ 0.340000003576279 ]
+									"xplace" : [ 0.07599999755621 ],
+									"yplace" : [ 0.416000008583069 ]
 								}
 
 							}
@@ -1177,17 +1177,17 @@
 								"box" : 								{
 									"id" : "obj-38",
 									"maxclass" : "nodes",
-									"nodecolor" : [ 0.382932007312775, 0.5, 0.5, 1.0 ],
-									"nodesnames" : [ "3112" ],
+									"nodecolor" : [ 0.145879000425339, 0.5, 0.5, 1.0 ],
+									"nodesnames" : [ "3066" ],
 									"nsize" : [ 0.2 ],
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 233.25, 531.0, 180.0, 177.0 ],
-									"pointcolor" : [ 0.382932007312775, 0.5, 0.5, 1.0 ],
-									"xplace" : [ 0.0 ],
-									"yplace" : [ 0.642000019550323 ]
+									"pointcolor" : [ 0.145879000425339, 0.5, 0.5, 1.0 ],
+									"xplace" : [ 0.263000011444092 ],
+									"yplace" : [ 0.416000008583069 ]
 								}
 
 							}
@@ -1642,17 +1642,17 @@
 								"box" : 								{
 									"id" : "obj-1",
 									"maxclass" : "nodes",
-									"nodecolor" : [ 0.619984984397888, 0.5, 0.5, 1.0 ],
-									"nodesnames" : [ "3111" ],
+									"nodecolor" : [ 0.118527002632618, 0.5, 0.5, 1.0 ],
+									"nodesnames" : [ "3064" ],
 									"nsize" : [ 0.2 ],
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 18.75, 531.0, 180.0, 177.0 ],
-									"pointcolor" : [ 0.619984984397888, 0.5, 0.5, 1.0 ],
-									"xplace" : [ 0.0 ],
-									"yplace" : [ 0.734000027179718 ]
+									"pointcolor" : [ 0.118527002632618, 0.5, 0.5, 1.0 ],
+									"xplace" : [ 0.818000018596649 ],
+									"yplace" : [ 0.33899998664856 ]
 								}
 
 							}
@@ -1676,7 +1676,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 20.0, 6.0, 607.0, 94.0 ],
+									"patching_rect" : [ 20.0, 6.0, 607.0, 78.0 ],
 									"text" : "RADARTOUCH"
 								}
 
@@ -1984,7 +1984,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 90.0, 104.0, 648.0, 723.0 ],
+						"rect" : [ 0.0, 26.0, 646.0, 784.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -2020,20 +2020,20 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 20.0, 6.0, 607.0, 94.0 ],
+									"patching_rect" : [ 20.0, 6.0, 607.0, 78.0 ],
 									"text" : "RADARTOUCH"
 								}
 
 							}
 , 							{
 								"box" : 								{
-									"candycane" : 4,
-									"candycane2" : [ 0.382932007312775, 0.5, 0.5, 0.7 ],
+									"candycane" : 3,
+									"candycane2" : [ 0.145879000425339, 0.5, 0.5, 0.7 ],
 									"candycane3" : [ 0.027351999655366, 0.5, 0.5, 0.7 ],
 									"candycane4" : [ 0.996078431372549, 0.572549019607843, 0.952941176470588, 1.0 ],
 									"id" : "obj-4",
 									"maxclass" : "nodes",
-									"nodecolor" : [ 0.619984984397888, 0.5, 0.5, 0.7 ],
+									"nodecolor" : [ 0.118527002632618, 0.5, 0.5, 0.7 ],
 									"nodenumber" : 3,
 									"nodesnames" : [ "1", "2", "3" ],
 									"nsize" : [ 0.1, 0.1, 0.1 ],
@@ -2042,8 +2042,8 @@
 									"outlettype" : [ "", "", "" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 73.0, 207.333343505859375, 502.0, 477.0 ],
-									"xplace" : [ 0.0, 0.0, 0.819000005722046 ],
-									"yplace" : [ 0.734000027179718, 0.642000019550323, 0.340000003576279 ]
+									"xplace" : [ 0.818000018596649, 0.263000011444092, 0.07599999755621 ],
+									"yplace" : [ 0.33899998664856, 0.416000008583069, 0.416000008583069 ]
 								}
 
 							}
@@ -2134,7 +2134,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 648.0, 723.0 ],
+						"rect" : [ 0.0, 26.0, 646.0, 784.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -3471,17 +3471,17 @@
 								"box" : 								{
 									"id" : "obj-22",
 									"maxclass" : "nodes",
-									"nodecolor" : [ 0.619984984397888, 0.5, 0.5, 1.0 ],
-									"nodesnames" : [ "3111" ],
+									"nodecolor" : [ 0.118527002632618, 0.5, 0.5, 1.0 ],
+									"nodesnames" : [ "3064" ],
 									"nsize" : [ 0.2 ],
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 18.75, 516.0, 180.0, 177.0 ],
-									"pointcolor" : [ 0.619984984397888, 0.5, 0.5, 1.0 ],
-									"xplace" : [ 0.0 ],
-									"yplace" : [ 0.734000027179718 ]
+									"pointcolor" : [ 0.118527002632618, 0.5, 0.5, 1.0 ],
+									"xplace" : [ 0.818000018596649 ],
+									"yplace" : [ 0.33899998664856 ]
 								}
 
 							}
@@ -3489,17 +3489,17 @@
 								"box" : 								{
 									"id" : "obj-21",
 									"maxclass" : "nodes",
-									"nodecolor" : [ 0.382932007312775, 0.5, 0.5, 1.0 ],
-									"nodesnames" : [ "3112" ],
+									"nodecolor" : [ 0.145879000425339, 0.5, 0.5, 1.0 ],
+									"nodesnames" : [ "3066" ],
 									"nsize" : [ 0.2 ],
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 232.625, 516.0, 180.0, 177.0 ],
-									"pointcolor" : [ 0.382932007312775, 0.5, 0.5, 1.0 ],
-									"xplace" : [ 0.0 ],
-									"yplace" : [ 0.642000019550323 ]
+									"pointcolor" : [ 0.145879000425339, 0.5, 0.5, 1.0 ],
+									"xplace" : [ 0.263000011444092 ],
+									"yplace" : [ 0.416000008583069 ]
 								}
 
 							}
@@ -3508,7 +3508,7 @@
 									"id" : "obj-20",
 									"maxclass" : "nodes",
 									"nodecolor" : [ 0.027351999655366, 0.5, 0.5, 1.0 ],
-									"nodesnames" : [ "3099" ],
+									"nodesnames" : [ "3073" ],
 									"nsize" : [ 0.2 ],
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -3516,8 +3516,8 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 447.75, 516.0, 180.0, 177.0 ],
 									"pointcolor" : [ 0.027351999655366, 0.5, 0.5, 1.0 ],
-									"xplace" : [ 0.819000005722046 ],
-									"yplace" : [ 0.340000003576279 ]
+									"xplace" : [ 0.07599999755621 ],
+									"yplace" : [ 0.416000008583069 ]
 								}
 
 							}
@@ -3565,7 +3565,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 20.0, 6.0, 607.0, 94.0 ],
+									"patching_rect" : [ 20.0, 6.0, 607.0, 78.0 ],
 									"text" : "RADARTOUCH"
 								}
 
@@ -3889,7 +3889,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 648.0, 723.0 ],
+						"rect" : [ 0.0, 26.0, 646.0, 784.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -4329,7 +4329,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 648.0, 723.0 ],
+						"rect" : [ 90.0, 111.0, 646.0, 784.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -4429,7 +4429,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 151.875, 287.0, 209.875, 90.0 ],
+									"patching_rect" : [ 151.875, 287.0, 209.875, 87.0 ],
 									"text" : "1:  radatouch blob# (int)\n2:  x-val           (float)\n3:  y-val           (float)\n4:  acceleration    (float)\n5:\n6:"
 								}
 
@@ -4455,7 +4455,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 512.0, 390.0, 129.0, 34.0 ],
+									"patching_rect" : [ 512.0, 390.0, 121.0, 33.0 ],
 									"text" : "old blob is alive again"
 								}
 
@@ -4468,7 +4468,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 512.0, 329.0, 129.0, 48.0 ],
+									"patching_rect" : [ 512.0, 329.0, 95.0, 47.0 ],
 									"text" : "new blob is alive on this virtual id"
 								}
 
@@ -4517,7 +4517,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 512.0, 270.0, 131.0, 48.0 ],
+									"patching_rect" : [ 512.0, 270.0, 123.0, 47.0 ],
 									"text" : "packet arrived without new data for this blob"
 								}
 
@@ -4865,17 +4865,17 @@
 								"box" : 								{
 									"id" : "obj-1",
 									"maxclass" : "nodes",
-									"nodecolor" : [ 0.382932007312775, 0.5, 0.5, 1.0 ],
-									"nodesnames" : [ "3112" ],
+									"nodecolor" : [ 0.145879000425339, 0.5, 0.5, 1.0 ],
+									"nodesnames" : [ "3066" ],
 									"nsize" : [ 0.109408996999264 ],
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
 									"parameter_enable" : 0,
 									"patching_rect" : [ 20.0, 572.6666259765625, 208.0, 193.0 ],
-									"pointcolor" : [ 0.382932007312775, 0.5, 0.5, 1.0 ],
-									"xplace" : [ 0.0 ],
-									"yplace" : [ 0.642000019550323 ]
+									"pointcolor" : [ 0.145879000425339, 0.5, 0.5, 1.0 ],
+									"xplace" : [ 0.263000011444092 ],
+									"yplace" : [ 0.416000008583069 ]
 								}
 
 							}
@@ -4887,7 +4887,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 20.0, 6.0, 607.0, 94.0 ],
+									"patching_rect" : [ 20.0, 6.0, 607.0, 78.0 ],
 									"text" : "RADARTOUCH"
 								}
 
@@ -5156,22 +5156,22 @@
 		"lines" : [  ],
 		"dependency_cache" : [ 			{
 				"name" : "radartouch_test_2",
-				"bootpath" : "~/Documents/Max 8/Packages/radartouch/help",
+				"bootpath" : "~/Documents/Max 8/Packages/radartouch-max/help",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "radartouch.mxo",
-				"type" : "iLaX"
+				"name" : "radartouch.mxe64",
+				"type" : "mx64"
 			}
 , 			{
-				"name" : "OpenSoundControl.mxo",
-				"type" : "iLaX"
+				"name" : "OpenSoundControl.mxe64",
+				"type" : "mx64"
 			}
 , 			{
-				"name" : "radartouch_raw.mxo",
-				"type" : "iLaX"
+				"name" : "radartouch_raw.mxe64",
+				"type" : "mx64"
 			}
  ],
 		"autosave" : 0

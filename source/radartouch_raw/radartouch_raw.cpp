@@ -1,6 +1,6 @@
+#include <radartouch_receiver.h>
 #include <c74_min.h>
 #include <functional>
-#include <radartouch_receiver.h>
 
 namespace o {
 
